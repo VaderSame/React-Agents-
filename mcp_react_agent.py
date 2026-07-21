@@ -31,8 +31,8 @@ def mcp_to_openai(tools):
         for t in tools
     ]
 
-# StdioServerParameters is a configuration object used to launch and connect to a single 
-# local MCP server as a subprocess, whereas MultiServerMCPClient is a higher-level LangChain client designed to
+# StdioServerParameters is a configuration object used to launch and connect to a single local MCP server as a subprocess,
+# whereas MultiServerMCPClient is a higher-level LangChain client designed to
 # manage, route, and aggregate tools from multiple MCP servers simultaneously, supporting various network transports.
 
 
@@ -49,7 +49,6 @@ async def main():
             llm = ChatOpenAI(
                 model=os.getenv("MODEL_ID"),
                 base_url=os.getenv("OPENROUTER_SERVER"),
-                # api_key=os.getenv("OPENROUTER_API_KEY"),  # if not using OPENAI_API_KEY
                 temperature=0,
             )
             # Attach the schemas. Returns a NEW runnable -- llm itself is unchanged.
