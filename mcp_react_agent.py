@@ -1,13 +1,6 @@
 """
 Same ReAct loop, but driven by ChatOpenAI (pointed at OpenRouter).
 The MCP half is untouched -- weather_server.py stays exactly as it was.
-
-pip install "mcp[cli]" langchain-openai python-dotenv
-
-.env:
-    OPENROUTER_SERVER=https://openrouter.ai/api/v1
-    MODEL_ID=anthropic/claude-sonnet-4.5
-    OPENAI_API_KEY=sk-or-v1-...      # ChatOpenAI reads this name by default
 """
 
 import asyncio
@@ -37,6 +30,10 @@ def mcp_to_openai(tools):
         }
         for t in tools
     ]
+
+# StdioServerParameters is a configuration object used to launch and connect to a single 
+# local MCP server as a subprocess, whereas MultiServerMCPClient is a higher-level LangChain client designed to
+# manage, route, and aggregate tools from multiple MCP servers simultaneously, supporting various network transports.
 
 
 async def main():
