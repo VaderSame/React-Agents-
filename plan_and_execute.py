@@ -100,7 +100,10 @@ workflow.add_edge("planner", "executor")
 workflow.add_conditional_edges(
     "executor",
     route_execution,
-    {"execute": "executor", "finalize": "finalizer"}
+    {
+        "execute": "executor", 
+        "finalize": "finalizer"
+    }
 )
 workflow.add_edge("finalizer", END)
 
